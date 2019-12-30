@@ -20,7 +20,7 @@ class CustomReceiver : BroadcastReceiver() {
             when (intentAction) {
                 Intent.ACTION_POWER_CONNECTED -> toastMessage = "Power connected!"
                 Intent.ACTION_POWER_DISCONNECTED -> toastMessage = "Power disconnected!"
-                ACTION_CUSTOM_BROADCAST -> toastMessage = "Custom Broadcast Received"
+                ACTION_CUSTOM_BROADCAST -> toastMessage = "Custom Broadcast Received " + intent.getIntExtra("number",0)
             }
             //Display the toast.
             Toast.makeText(context, toastMessage, Toast.LENGTH_SHORT).show()

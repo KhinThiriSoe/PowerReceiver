@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,7 +40,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun sendCustomBroadcast(view: View) {
+        val random = Random().nextInt(19 - 1) + 1
         val customBroadcastIntent = Intent(ACTION_CUSTOM_BROADCAST)
+        customBroadcastIntent.putExtra("number",random)
         LocalBroadcastManager.getInstance(this).sendBroadcast(customBroadcastIntent)
     }
 }
